@@ -55,9 +55,8 @@ jobs:
           command: build
           args: --release --target=${{ matrix.target }}
           use-cross: true
-
       - run: |
-          tar -zcvf simplememo-${{ matrix.target }}.tar.gz target/${{ matrix.target }}/release/simplememo{,.exe}
+          tar -zcvf simplememo-${{ matrix.target }}.tar.gz target/${{ matrix.target }}/release/simplememo*
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.target }}
