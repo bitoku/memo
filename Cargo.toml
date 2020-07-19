@@ -2,8 +2,10 @@
 name = "memo"
 version = "0.1.0"
 authors = ["Ayato Tokubi <tokubi.ayato@gmail.com>"]
+homepage = "https://github.com/bitoku/memo"
 edition = "2018"
 description = "very minimal symple cli for noting something"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
