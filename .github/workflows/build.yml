@@ -57,11 +57,11 @@ jobs:
           use-cross: true
 
       - run: |
-          zip --junk-paths simplememo-${{ matrix.target }} target/${{ matrix.target }}/release/simplememo{,.exe}
+          tar -zcvf simplememo-${{ matrix.target }}.tar.gz target/${{ matrix.target }}/release/simplememo{,.exe}
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.target }}
-          path: simplememo-${{ matrix.target }}.zip
+          path: simplememo-${{ matrix.target }}.tar.gz
 
   create-release:
     needs: [build]
@@ -107,6 +107,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.upload-url.outputs.url }}
-          asset_path: ./build-${{ matrix.target }}/simplememo-${{ matrix.target }}.zip
-          asset_name: simplememo-${{ matrix.target }}.zip
-          asset_content_type: application/zip
+          asset_path: ./build-${{ matrix.target }}/simplememo-${{ matrix.target }}.tar.gz
+          asset_name: simplememo-${{ matrix.target }}.tar.gz
+          asset_content_type: application/gzip
