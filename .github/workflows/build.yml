@@ -56,8 +56,8 @@ jobs:
           use-cross: true
 
       - run: |
-          zip --junk-paths memo-${{ matrix.target }} target/${{ matrix.target }}/release/memo{,.exe}
+          zip --junk-paths simplememo-${{ matrix.target }} target/${{ matrix.target }}/release/simplememo{,.exe}
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.target }}
-          path: memo-${{ matrix.target }}.zip
+          path: simplememo-${{ matrix.target }}.zip
