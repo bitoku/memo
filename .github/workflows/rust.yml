@@ -56,8 +56,8 @@ jobs:
           use-cross: true
 
       - run: |
-          zip --junk-paths slack-stream-json-${{ matrix.target }} target/${{ matrix.target }}/release/slack-stream-json{,.exe}
+          zip --junk-paths memo-${{ matrix.target }} target/${{ matrix.target }}/release/memo{,.exe}
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.target }}
-          path: slack-stream-json-${{ matrix.target }}.zip
+          path: memo-${{ matrix.target }}.zip
