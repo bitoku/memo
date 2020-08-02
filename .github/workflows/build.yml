@@ -57,10 +57,10 @@ jobs:
           use-cross: true
       - run: |
           tar -zcvf simplememo-${{ matrix.target }}.tar.gz -C target/${{ matrix.target }}/release simplememo
-        if: ${{ matrix.target != x86_64-pc-windows-gnu }}
+        if: ${{ matrix.target != 'x86_64-pc-windows-gnu' }}
       - run: |
           tar -zcvf simplememo-${{ matrix.target }}.tar.gz -C target/${{ matrix.target }}/release simplememo.exe
-        if: ${{ matrix.target == x86_64-pc-windows-gnu }}
+        if: ${{ matrix.target == 'x86_64-pc-windows-gnu' }}
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.target }}
